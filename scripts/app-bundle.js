@@ -1,10 +1,19 @@
-define('app',["require", "exports"], function (require, exports) {
+define('app',["require", "exports", "aurelia-i18n"], function (require, exports, aurelia_i18n_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var App = (function () {
-        function App() {
+        function App(i18n) {
+            var _this = this;
+            this.i18n = i18n;
             this.message = 'Hello World!';
+            this.i18n
+                .setLocale('en-US')
+                .then(function () {
+                console.log(_this.i18n.getLocale());
+                console.log(_this.i18n.tr('friend'));
+            });
         }
+        App.inject = [aurelia_i18n_1.I18N];
         return App;
     }());
     exports.App = App;
@@ -3828,5 +3837,5 @@ define('aurelia-i18n/aurelia-i18n-loader',['exports'], function (exports) {
     return obj;
   }
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><h1>${message}</h1></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><h1>${message}</h1><p t=\"friend\"></p></template>"; });
 //# sourceMappingURL=app-bundle.js.map
