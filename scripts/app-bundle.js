@@ -49,7 +49,7 @@ define('main',["require", "exports", "./environment", "aurelia-i18n"], function 
                     loadPath: './locales/{{lng}}/{{ns}}.json',
                 },
                 attributes: aliases,
-                lng: 'de',
+                lng: 'en',
                 fallbackLng: 'en',
                 debug: false
             });
